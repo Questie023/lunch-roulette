@@ -1,0 +1,22 @@
+[package]
+name = "lunch-worker"
+version = "0.1.0"
+edition.workspace = true
+rust-version.workspace = true
+publish.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "Cloudflare Worker that serves the Lunch Roulette Slack app over D1"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+lunch-core = { workspace = true, features = ["testkit"] }
+lunch-slack.workspace = true
+worker.workspace = true
+getrandom = { workspace = true, features = ["wasm_js"] }
+jiff = { workspace = true, features = ["js", "tzdb-bundle-always"] }
+rand.workspace = true
+serde.workspace = true
+serde_json.workspace = true

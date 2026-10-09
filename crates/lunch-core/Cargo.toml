@@ -1,0 +1,22 @@
+[package]
+name = "lunch-core"
+version = "0.1.0"
+edition.workspace = true
+rust-version.workspace = true
+publish.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "Domain model, pick pipeline and storage-agnostic business flows for Lunch Roulette"
+
+[features]
+testkit = []
+
+[dependencies]
+jiff.workspace = true
+rand.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+
+[dev-dependencies]
+pollster.workspace = true

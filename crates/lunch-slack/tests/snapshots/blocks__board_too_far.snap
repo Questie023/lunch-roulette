@@ -1,0 +1,96 @@
+---
+source: crates/lunch-slack/tests/blocks.rs
+expression: msg
+---
+{
+  "blocks": [
+    {
+      "text": {
+        "text": "🍴 *Lunch today* · Tue 6 Oct",
+        "type": "mrkdwn"
+      },
+      "type": "section"
+    },
+    {
+      "elements": [
+        {
+          "text": "*Going (2):* Anna, Bar &amp; &lt;Max&gt;",
+          "type": "mrkdwn"
+        }
+      ],
+      "type": "context"
+    },
+    {
+      "text": {
+        "text": "🤷 Everything left is further than the group's walking limit.",
+        "type": "mrkdwn"
+      },
+      "type": "section"
+    },
+    {
+      "block_id": "lunch_actions",
+      "elements": [
+        {
+          "action_id": "join",
+          "text": {
+            "emoji": true,
+            "text": "🙋 Join",
+            "type": "plain_text"
+          },
+          "type": "button",
+          "value": "42"
+        },
+        {
+          "action_id": "leave",
+          "text": {
+            "emoji": true,
+            "text": "Leave",
+            "type": "plain_text"
+          },
+          "type": "button",
+          "value": "42"
+        },
+        {
+          "action_id": "pick",
+          "style": "primary",
+          "text": {
+            "emoji": true,
+            "text": "🎲 Pick a place",
+            "type": "plain_text"
+          },
+          "type": "button",
+          "value": "42"
+        },
+        {
+          "action_id": "ignore_distance",
+          "text": {
+            "emoji": true,
+            "text": "🚶 Ignore distance",
+            "type": "plain_text"
+          },
+          "type": "button",
+          "value": "42"
+        },
+        {
+          "action_id": "manual",
+          "options": [
+            {
+              "text": {
+                "text": "Noodle Bar",
+                "type": "plain_text"
+              },
+              "value": "42:7"
+            }
+          ],
+          "placeholder": {
+            "text": "Pick by hand",
+            "type": "plain_text"
+          },
+          "type": "static_select"
+        }
+      ],
+      "type": "actions"
+    }
+  ],
+  "text": "Lunch today: 2 going"
+}

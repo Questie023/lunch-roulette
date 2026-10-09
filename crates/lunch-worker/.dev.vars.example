@@ -1,0 +1,4 @@
+SLACK_SIGNING_SECRET=dev-signing-secret
+SLACK_BOT_TOKEN=xoxb-dev-not-a-real-token
+SLACK_DRY_RUN=1
+SELFTEST=1

@@ -1,0 +1,153 @@
+---
+source: crates/lunch-slack/tests/blocks.rs
+expression: "session_message(&view(Some(pick(true))), &[noodle_bar()], None)"
+---
+{
+  "blocks": [
+    {
+      "text": {
+        "text": "🍴 *Lunch today* · Tue 6 Oct",
+        "type": "mrkdwn"
+      },
+      "type": "section"
+    },
+    {
+      "elements": [
+        {
+          "text": "*Going (2):* Anna, Bar &amp; &lt;Max&gt;",
+          "type": "mrkdwn"
+        }
+      ],
+      "type": "context"
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "text": {
+        "text": "✅ *We're going to Noodle Bar*\n🍽️ thai · 🚶 3 min · 💰💰\n*Why:*\n• 2 people like thai food\n• you haven't been there recently",
+        "type": "mrkdwn"
+      },
+      "type": "section"
+    },
+    {
+      "elements": [
+        {
+          "text": "⚠️ We don't know whether there's an option for everyone's dietary needs — please check with the staff.",
+          "type": "mrkdwn"
+        }
+      ],
+      "type": "context"
+    },
+    {
+      "block_id": "lunch_actions",
+      "elements": [
+        {
+          "action_id": "join",
+          "text": {
+            "emoji": true,
+            "text": "🙋 Join",
+            "type": "plain_text"
+          },
+          "type": "button",
+          "value": "42"
+        },
+        {
+          "action_id": "leave",
+          "text": {
+            "emoji": true,
+            "text": "Leave",
+            "type": "plain_text"
+          },
+          "type": "button",
+          "value": "42"
+        },
+        {
+          "action_id": "pick",
+          "style": "primary",
+          "text": {
+            "emoji": true,
+            "text": "🔄 Try another",
+            "type": "plain_text"
+          },
+          "type": "button",
+          "value": "42"
+        },
+        {
+          "action_id": "manual",
+          "options": [
+            {
+              "text": {
+                "text": "Noodle Bar",
+                "type": "plain_text"
+              },
+              "value": "42:7"
+            }
+          ],
+          "placeholder": {
+            "text": "Pick by hand",
+            "type": "plain_text"
+          },
+          "type": "static_select"
+        },
+        {
+          "action_id": "menu",
+          "text": {
+            "emoji": true,
+            "text": "📋 Today's menu",
+            "type": "plain_text"
+          },
+          "type": "button",
+          "url": "https://noodle-bar.example/lunch"
+        }
+      ],
+      "type": "actions"
+    },
+    {
+      "elements": [
+        {
+          "text": "How was it?",
+          "type": "mrkdwn"
+        }
+      ],
+      "type": "context"
+    },
+    {
+      "block_id": "lunch_feedback",
+      "elements": [
+        {
+          "action_id": "fb_good",
+          "text": {
+            "emoji": true,
+            "text": "👍 Good choice",
+            "type": "plain_text"
+          },
+          "type": "button",
+          "value": "42:9"
+        },
+        {
+          "action_id": "fb_ok",
+          "text": {
+            "emoji": true,
+            "text": "🙂 Okay",
+            "type": "plain_text"
+          },
+          "type": "button",
+          "value": "42:9"
+        },
+        {
+          "action_id": "fb_bad",
+          "text": {
+            "emoji": true,
+            "text": "👎 Not for me",
+            "type": "plain_text"
+          },
+          "type": "button",
+          "value": "42:9"
+        }
+      ],
+      "type": "actions"
+    }
+  ],
+  "text": "Lunch today: Noodle Bar"
+}

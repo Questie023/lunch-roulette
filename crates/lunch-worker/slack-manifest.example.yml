@@ -1,0 +1,30 @@
+# Copy to slack-manifest.yml (ignored by git), replace <your-subdomain> with your workers.dev subdomain,
+# then create the app at https://api.slack.com/apps -> "From a manifest". See docs/deployment.md.
+display_information:
+  name: Lunch Roulette
+  description: Decides where the team goes for lunch.
+  background_color: "#2c2d30"
+features:
+  bot_user:
+    display_name: Lunch Roulette
+    always_online: true
+  slash_commands:
+    - command: /lunch
+      url: https://lunch-roulette.<your-subdomain>.workers.dev/slack/commands
+      description: Open today's lunch board
+      usage_hint: "[add|help]"
+      should_escape: false
+oauth_config:
+  scopes:
+    bot:
+      - commands
+      - chat:write
+      - chat:write.public
+      - users:read
+settings:
+  interactivity:
+    is_enabled: true
+    request_url: https://lunch-roulette.<your-subdomain>.workers.dev/slack/interactions
+  org_deploy_enabled: false
+  socket_mode_enabled: false
+  token_rotation_enabled: false

@@ -1,0 +1,37 @@
+[workspace]
+resolver = "3"
+members = ["crates/lunch-core", "crates/lunch-sqlite", "crates/lunch-slack", "crates/lunch-worker", "tools/slack-sim"]
+# The worker is wasm-only; plain `cargo test` / `cargo build` skip it.
+default-members = ["crates/lunch-core", "crates/lunch-sqlite", "crates/lunch-slack", "tools/slack-sim"]
+
+[workspace.package]
+edition = "2024"
+rust-version = "1.91"
+publish = false
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/Questie023/lunch-roulette"
+
+[workspace.dependencies]
+lunch-core = { path = "crates/lunch-core" }
+lunch-sqlite = { path = "crates/lunch-sqlite" }
+lunch-slack = { path = "crates/lunch-slack" }
+rusqlite = { version = "0.40.2", features = ["bundled"] }
+jiff = { version = "0.2.37", features = ["serde"] }
+rand = { version = "0.10.3", default-features = false, features = ["std", "std_rng"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+thiserror = "2"
+pollster = "1.0"
+hmac = "0.13"
+sha2 = "0.11"
+hex = "0.4"
+serde_urlencoded = "0.7"
+insta = { version = "1.49", features = ["json"] }
+worker = { version = "0.8.7", features = ["d1"] }
+getrandom = "0.4.3"
+ureq = "3.4"
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1

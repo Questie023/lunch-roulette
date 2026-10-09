@@ -1,0 +1,25 @@
+# Copy this file to wrangler.toml (ignored by git) and fill in your own values.
+# See docs/deployment.md.
+
+name = "lunch-roulette"
+main = "build/index.js"
+compatibility_date = "2026-10-01"
+# Needed only when your Cloudflare login can see more than one account (`npx wrangler whoami`).
+# account_id = "<your account id>"
+
+[build]
+command = "cargo install -q worker-build@^0.8 && worker-build --release"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "lunch-roulette"
+# The all-zero id works for `--local`; replace it with the id printed by `npx wrangler d1 create lunch-roulette`.
+database_id = "00000000-0000-0000-0000-000000000000"
+migrations_dir = "../../migrations"
+
+[vars]
+SLACK_DRY_RUN = "0"
+SELFTEST = "0"
+
+[observability]
+enabled = true
