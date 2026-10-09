@@ -49,7 +49,7 @@ pub fn parse_opening_hours(input: &str) -> Result<OpeningHours, OhError> {
             continue;
         }
         if let Some(day_part) = rule.strip_suffix("off") {
-            for d in parse_days(day_part).map_err(&err)? {
+            for d in parse_days(day_part).map_err(err)? {
                 days[d].clear();
             }
             continue;
@@ -62,8 +62,8 @@ pub fn parse_opening_hours(input: &str) -> Result<OpeningHours, OhError> {
             .split(',')
             .map(parse_range)
             .collect::<Result<Vec<_>, _>>()
-            .map_err(&err)?;
-        for d in parse_days(day_part).map_err(&err)? {
+            .map_err(err)?;
+        for d in parse_days(day_part).map_err(err)? {
             days[d] = ranges.clone();
         }
     }
