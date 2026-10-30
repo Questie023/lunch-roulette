@@ -15,7 +15,7 @@ repository = "https://github.com/Questie023/lunch-roulette"
 lunch-core = { path = "crates/lunch-core" }
 lunch-sqlite = { path = "crates/lunch-sqlite" }
 lunch-slack = { path = "crates/lunch-slack" }
-rusqlite = { version = "0.40.2", features = ["bundled"] }
+rusqlite = { version = "0.41.0", features = ["bundled"] }
 jiff = { version = "0.2.37", features = ["serde"] }
 rand = { version = "0.10.3", default-features = false, features = ["std", "std_rng"] }
 serde = { version = "1", features = ["derive"] }
