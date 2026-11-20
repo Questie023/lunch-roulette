@@ -15,8 +15,8 @@ repository = "https://github.com/Questie023/lunch-roulette"
 lunch-core = { path = "crates/lunch-core" }
 lunch-sqlite = { path = "crates/lunch-sqlite" }
 lunch-slack = { path = "crates/lunch-slack" }
-rusqlite = { version = "0.40.2", features = ["bundled"] }
-jiff = { version = "0.2.37", features = ["serde"] }
+rusqlite = { version = "0.43.0", features = ["bundled"] }
+jiff = { version = "1.0.0", features = ["serde"] }
 rand = { version = "0.10.3", default-features = false, features = ["std", "std_rng"] }
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
@@ -27,7 +27,7 @@ sha2 = "0.11"
 hex = "0.4"
 serde_urlencoded = "0.7"
 insta = { version = "1.49", features = ["json"] }
-worker = { version = "0.8.7", features = ["d1"] }
+worker = { version = "0.9.0", features = ["d1"] }
 getrandom = "0.4.3"
 ureq = "3.4"
 
